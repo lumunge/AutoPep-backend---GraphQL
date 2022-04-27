@@ -1,13 +1,13 @@
 import config from "config";
 import jwt from "jsonwebtoken";
 
-const privateKey = Buffer.from(
-  config.get<string>("privateKey"),
+const publicKey = Buffer.from(
+  config.get<string>("publicKey"),
   "base64"
 ).toString("ascii");
 
-const publicKey = Buffer.from(
-  config.get<string>("publicKey"),
+const privateKey = Buffer.from(
+  config.get<string>("privateKey"),
   "base64"
 ).toString("ascii");
 
