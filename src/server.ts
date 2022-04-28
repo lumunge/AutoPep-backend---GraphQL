@@ -11,7 +11,7 @@ import {
   ApolloServerPluginLandingPageGraphQLPlayground,
   ApolloServerPluginLandingPageProductionDefault,
 } from "apollo-server-core";
-// import { verifyJWT } from "./utils/tokens";
+import { verifyJWT } from "./utils/tokens";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -30,10 +30,10 @@ const serve = async () => {
     context: (ctx: Context) => {
       const context = ctx;
 
-      // if (ctx.req.cookies.accessToken) {
-      //   const user = verifyJWT<User>(ctx.req.cookies.accessToken);
-      //   context.user = user;
-      // }
+      if (ctx.req.cookies.accessToken) {
+        const user = verifyJWT<User>(ctx.req.cookies.accessToken);
+        context.user = user;
+      }
 
       return context;
     },
